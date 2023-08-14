@@ -6,5 +6,5 @@ use LLKC\Models\Hobbies;
 
 interface HobbiesRepository
 {
-    public function save(Hobbies $hobbies): void;
+    public function save(Hobbies $hobbies, int $userId): void;
 }

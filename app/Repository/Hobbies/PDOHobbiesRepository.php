@@ -18,7 +18,7 @@ class PDOHobbiesRepository implements HobbiesRepository
         $this->queryBuilder = $this->connection->createQueryBuilder();
     }
 
-    public function save(Hobbies $hobbies): void
+    public function save(Hobbies $hobbies, int $userId): void
     {
         $queryBuilder = $this->queryBuilder;
         $queryBuilder
@@ -31,6 +31,7 @@ class PDOHobbiesRepository implements HobbiesRepository
                     'age' => '?',
                     'employment' => '?',
                     'hobbies' => '?',
+                    'user_id' => '?'
                 ]
             )
             ->setParameter(0, $hobbies->getDateFrom())
@@ -38,11 +39,11 @@ class PDOHobbiesRepository implements HobbiesRepository
             ->setParameter(2, $hobbies->getGender())
             ->setParameter(3, $hobbies->getAge())
             ->setParameter(4, $hobbies->getEmployment())
-            ->setParameter(5, $hobbies->getHobbies());
+            ->setParameter(5, $hobbies->getHobbies())
+            ->setParameter(6, $userId);
 
         $queryBuilder->executeQuery();
 
-        $hobbies->setUserid((int)$this->connection->lastInsertId());
     }
 
     private function buildModel($user): Hobbies

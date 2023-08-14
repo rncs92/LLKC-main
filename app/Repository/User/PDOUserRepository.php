@@ -126,7 +126,7 @@ class PDOUserRepository implements UserRepository
             $user['city'],
             $user['postal_code'],
             $user['phone_number'],
-            $user['hobbies'],
+            $user['comments'],
             (int)$user['user_id']
         );
     }

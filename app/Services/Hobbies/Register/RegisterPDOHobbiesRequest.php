@@ -11,6 +11,7 @@ class RegisterPDOHobbiesRequest
     private string $employment;
     private array $hobbies;
 
+
     public function __construct
     (
         string $date_from,

@@ -14,7 +14,7 @@ class RegisterPDOHobbiesService
         $this->hobbiesRepository = $hobbiesRepository;
     }
 
-    public function handle(RegisterPDOHobbiesRequest $request): RegisterPDOHobbiesResponse
+    public function handle(RegisterPDOHobbiesRequest $request, int $userId): RegisterPDOHobbiesResponse
     {
         $hobbies = new Hobbies(
             $request->getDateFrom(),
@@ -22,10 +22,11 @@ class RegisterPDOHobbiesService
             $request->getGender(),
             $request->getAge(),
             $request->getEmployment(),
-            $request->getHobbies()
+            $request->getHobbies(),
+            $userId,
         );
 
-        $this->hobbiesRepository->save($hobbies);
+        $this->hobbiesRepository->save($hobbies, $userId);
 
         return new RegisterPDOHobbiesResponse($hobbies);
     }

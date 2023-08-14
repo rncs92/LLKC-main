@@ -46,13 +46,14 @@ class UserController
                     $_POST['password'],
                     $_POST['address'],
                     $_POST['city'],
-                    $_POST['post_code'],
+                    $_POST['postal_code'],
                     $_POST['phone_number'],
                     $_POST['comments'],
                     $_POST['password_confirmation']
                 )
             );
-            $_SESSION['authid'] = $user->getUser()->getUserid();
+
+            $userId = $user->getUser()->getUserid();
 
             $this->registerPDOHobbiesService->handle(
                 new RegisterPDOHobbiesRequest(
@@ -61,9 +62,12 @@ class UserController
                     $_POST['gender'],
                     $_POST['age'],
                     $_POST['employment'],
-                    $_POST['hobbies'],
-                )
+                    $_POST['hobby'],
+                ),
+                $userId
             );
+
+            $_SESSION['authid'] = $userId;
 
             return new Redirect("/");
         } catch (ValidationException $exception) {

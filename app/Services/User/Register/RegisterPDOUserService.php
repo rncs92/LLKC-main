@@ -21,14 +21,12 @@ class RegisterPDOUserService
             $request->getEmail(),
             $request->getName(),
             $request->getSurname(),
-            $request->getPassword(),
+            password_hash($request->getPassword(), PASSWORD_DEFAULT),
             $request->getAddress(),
             $request->getCity(),
             $request->getPostalCode(),
             $request->getPhoneNumber(),
             $request->getComments(),
-
-            password_hash($request->getPassword(), PASSWORD_DEFAULT)
         );
 
         $this->userRepository->save($user);
