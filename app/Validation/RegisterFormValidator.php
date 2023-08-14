@@ -49,7 +49,7 @@ class RegisterFormValidator
             $this->errors['password'][] = 'Password must be at least 7 symbols long!';
         }
 
-        if ($fields['password'] !== $fields['confirm_password']) {
+        if ($fields['password'] !== $fields['password_confirmation']) {
             $this->errors['password'][] = 'Passwords does not match!';
         }
 

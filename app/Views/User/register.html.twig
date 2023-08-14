@@ -36,6 +36,9 @@
                                     <input type="text" id="username" name="username"
                                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                            required>
+                                    {% if errors.username %}
+                                        <span class="text-red-500">{{ errors.username[0] }}</span>
+                                    {% endif %}
                                 </div>
                             </div>
                             <div class="w-full lg:w-6/12 px-4">
@@ -47,6 +50,9 @@
                                     <input type="email" id="email" name="email"
                                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                            required>
+                                    {% if errors.email %}
+                                        <span class="text-red-500">{{ errors.email[0] }}</span>
+                                    {% endif %}
                                 </div>
                             </div>
                             <div class="w-full lg:w-6/12 px-4">
@@ -58,6 +64,9 @@
                                     <input type="text" id="name" name="name"
                                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                            required>
+                                    {% if errors.name %}
+                                        <span class="text-red-500">{{ errors.name[0] }}</span>
+                                    {% endif %}
                                 </div>
                             </div>
                             <div class="w-full lg:w-6/12 px-4">
@@ -69,6 +78,9 @@
                                     <input type="text" id="surname" name="surname"
                                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                            required>
+                                    {% if errors.surname %}
+                                        <span class="text-red-500">{{ errors.surname[0] }}</span>
+                                    {% endif %}
                                 </div>
                             </div>
                             <div class="w-full lg:w-6/12 px-4">
@@ -80,6 +92,9 @@
                                     <input type="password" id="password" name="password"
                                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                            required>
+                                    {% if errors.password %}
+                                        <span class="text-red-500">{{ errors.password[0] }}</span>
+                                    {% endif %}
                                 </div>
                             </div>
                             <div class="w-full lg:w-6/12 px-4">
@@ -91,6 +106,9 @@
                                     <input type="password" id="password_confirmation" name="password_confirmation"
                                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                            required>
+                                    {% if errors.password %}
+                                        <span class="text-red-500">{{ errors.password[0] }}</span>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
