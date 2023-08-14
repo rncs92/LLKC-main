@@ -45,22 +45,23 @@ class UserController
                     $_POST['surname'],
                     $_POST['password'],
                     $_POST['address'],
+                    $_POST['city'],
+                    $_POST['post_code'],
+                    $_POST['phone_number'],
+                    $_POST['comments'],
+                    $_POST['password_confirmation']
                 )
             );
             $_SESSION['authid'] = $user->getUser()->getUserid();
 
-            $hobbies = $this->registerPDOHobbiesService->handle(
+            $this->registerPDOHobbiesService->handle(
                 new RegisterPDOHobbiesRequest(
-                    $_POST['city'],
-                    $_POST['post_code'],
-                    $_POST['phone_number'],
                     $_POST['date_from'],
                     $_POST['date_to'],
                     $_POST['gender'],
                     $_POST['age'],
                     $_POST['employment'],
                     $_POST['hobbies'],
-                    $_POST['comments'],
                 )
             );
 
