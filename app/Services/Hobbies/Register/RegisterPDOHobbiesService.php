@@ -2,6 +2,7 @@
 
 namespace LLKC\Services\Hobbies\Register;
 
+use LLKC\Models\Hobbies;
 use LLKC\Repository\Hobbies\HobbiesRepository;
 
 class RegisterPDOHobbiesService
@@ -13,8 +14,19 @@ class RegisterPDOHobbiesService
         $this->hobbiesRepository = $hobbiesRepository;
     }
 
-    public function handle()
+    public function handle(RegisterPDOHobbiesRequest $request): RegisterPDOHobbiesResponse
     {
+        $hobbies = new Hobbies(
+            $request->getDateFrom(),
+            $request->getDateTo(),
+            $request->getGender(),
+            $request->getAge(),
+            $request->getEmployment(),
+            $request->getHobbies()
+        );
 
+        $this->hobbiesRepository->save($hobbies);
+
+        return new RegisterPDOHobbiesResponse($hobbies);
     }
 }

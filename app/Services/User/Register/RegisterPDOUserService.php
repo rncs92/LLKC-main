@@ -17,10 +17,17 @@ class RegisterPDOUserService
     public function handle(RegisterPDOUserRequest $request): RegisterPDOUserResponse
     {
         $user = new User(
-            $request->getName(),
-            $request->getSurname(),
             $request->getUsername(),
             $request->getEmail(),
+            $request->getName(),
+            $request->getSurname(),
+            $request->getPassword(),
+            $request->getAddress(),
+            $request->getCity(),
+            $request->getPostalCode(),
+            $request->getPhoneNumber(),
+            $request->getComments(),
+
             password_hash($request->getPassword(), PASSWORD_DEFAULT)
         );
 

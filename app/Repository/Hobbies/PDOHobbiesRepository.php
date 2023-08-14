@@ -57,5 +57,4 @@ class PDOHobbiesRepository implements HobbiesRepository
             (int)$user['user_id']
         );
     }
-
 }
