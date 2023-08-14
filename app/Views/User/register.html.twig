@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Sign Up</title>
+</head>
+<body class="bg-gray-100">
+<form method="POST" action="/register" class="mb-10">
+    <section class=" py-1 bg-blueGray-50">
+        <div class="w-full lg:w-8/12 px-4 mx-auto mt-6">
+            <div
+                    class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
+                <div class="rounded-t bg-white mb-0 px-6 py-6">
+                    <div class="text-center flex justify-between">
+                        <h6 class="text-blueGray-700 text-xl font-bold">
+                            Sign Up
+                        </h6>
+                    </div>
+                </div>
+                <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+                    <form>
+                        <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                            User Information
+                        </h6>
+                        <div class="flex flex-wrap">
+                            <div class="w-full lg:w-6/12 px-4">
+                                <div class="relative w-full mb-3">
+                                    <label for="username"
+                                           class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                                        Username
+                                    </label>
+                                    <input type="text" id="username" name="username"
+                                           class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                           required>
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-6/12 px-4">
+                                <div class="relative w-full mb-3">
+                                    <label for="email"
+                                           class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                                        Email address
+                                    </label>
+                                    <input type="email" id="email" name="email"
+                                           class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                           required>
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-6/12 px-4">
+                                <div class="relative w-full mb-3">
+                                    <label for="name"
+                                           class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                                        First Name
+                                    </label>
+                                    <input type="text" id="name" name="name"
+                                           class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                           required>
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-6/12 px-4">
+                                <div class="relative w-full mb-3">
+                                    <label for="surname"
+                                           class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                                        Surname
+                                    </label>
+                                    <input type="text" id="surname" name="surname"
+                                           class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                           required>
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-6/12 px-4">
+                                <div class="relative w-full mb-3">
+                                    <label for="password"
+                                           class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                                        Password
+                                    </label>
+                                    <input type="password" id="password" name="password"
+                                           class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                           required>
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-6/12 px-4">
+                                <div class="relative w-full mb-3">
+                                    <label for="password_confirmation"
+                                           class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                                        Password Confirmation
+                                    </label>
+                                    <input type="password" id="password_confirmation" name="password_confirmation"
+                                           class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                           required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="mt-6 border-b-1 border-blueGray-300">
+
+                        <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                            Contact Information
+                        </h6>
+                        <div class="flex flex-wrap">
+                            <div class="w-full lg:w-12/12 px-4">
+                                <div class="relative w-full mb-3">
+                                    <label for="address"
+                                           class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                                        Address
+                                    </label>
+                                    <input type="text" id="address" name="address"
+                                           class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                           required>
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-4/12 px-4">
+                                <div class="relative w-full mb-3">
+                                    <label for="city"
+                                           class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                                        City
+                                    </label>
+                                    <input type="text" id="city" name="city"
+                                           class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                           required>
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-4/12 px-4">
+                                <div class="relative w-full mb-3">
+                                    <label for="postal_code"
+                                           class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                                        Postal Code
+                                    </label>
+                                    <input type="text" id="postal_code" name="postal_code"
+                                           class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                           required>
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-4/12 px-4">
+                                <div class="relative w-full mb-3">
+                                    <label for="phone_number"
+                                           class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                                        Phone Number
+                                    </label>
+                                    <input type="tel" id="phone_number" name="phone_number"
+                                           class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                           required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="mt-6 border-b-1 border-blueGray-300">
+
+                        <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                            Additional Information
+                        </h6>
+                        <div class="flex flex-wrap">
+                            <div class="w-full">
+                                <label for="date"
+                                       class="block uppercase text-blueGray-600 text-xs font-bold mb-2 text-center">
+                                    Date
+                                </label>
+                            </div>
+                            <div class="w-full flex justify-center">
+                                <div date-rangepicker class="flex items-center">
+                                    <div class="relative">
+                                        <div
+                                                class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                                                 xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                                 viewBox="0 0 20 20">
+                                                <path
+                                                        d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                                            </svg>
+                                        </div>
+                                        <input id="date" name="date_from" type="text"
+                                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                               placeholder="Select date start" required>
+                                    </div>
+                                    <span class="mx-4 text-gray-500">to</span>
+                                    <div class="relative">
+                                        <div
+                                                class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                                                 xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                                 viewBox="0 0 20 20">
+                                                <path
+                                                        d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                                            </svg>
+                                        </div>
+                                        <input id="date" name="date_to" type="text"
+                                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                               placeholder="Select date end" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap mt-10">
+                            <div class="w-full lg:w-4/12 px-4">
+                                <div class="relative w-full mb-3">
+                                    <label
+                                            class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                                        Gender
+                                    </label>
+                                    <div class="flex gap-x-6">
+                                        <div class="flex">
+                                            <input type="radio" id="gender-male" name="gender" value="Male"
+                                                   class="shrink-0 mt-0.5 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500"
+                                                   checked>
+                                            <label id="male" for="gender-male"
+                                                   class="text-sm text-gray-500 ml-2">Male</label>
+                                        </div>
+
+                                        <div class="flex">
+                                            <input type="radio" id="gender-female" name="gender" value="Female"
+                                                   class="shrink-0 mt-0.5 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500">
+                                            <label for="gender-female"
+                                                   class="text-sm text-gray-500 ml-2">Female</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-4/12 px-4">
+                                <div class="relative w-full mb-3">
+                                    <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                                        Age
+                                    </label>
+                                    <div class="flex gap-x-6">
+                                        <div class="flex">
+                                            <input type="radio" id="less18" name="age" value="<18"
+                                                   class="shrink-0 mt-0.5 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500"
+                                                   checked>
+                                            <label id="male" for="less18"
+                                                   class="text-sm text-gray-500 ml-2"><
+                                                18</label>
+                                        </div>
+
+                                        <div class="flex">
+                                            <input type="radio" id="18-31" name="age" value="18-31"
+                                                   class="shrink-0 mt-0.5 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500">
+                                            <label for="18-31"
+                                                   class="text-sm text-gray-500 ml-2">18 -
+                                                31</label>
+                                        </div>
+
+                                        <div class="flex">
+                                            <input type="radio" id="32-51" name="age" value="32-51"
+                                                   class="shrink-0 mt-0.5 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500">
+                                            <label for="32-51"
+                                                   class="text-sm text-gray-500 ml-2"> 32 -
+                                                51</label>
+                                        </div>
+
+                                        <div class="flex">
+                                            <input type="radio" id="more52" name="age" value="52<"
+                                                   class="shrink-0 mt-0.5 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500">
+                                            <label for="more52"
+                                                   class="text-sm text-gray-500 ml-2">52
+                                                <</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-4/12 px-4">
+                                <div class="relative w-full mb-3">
+                                    <label
+                                            class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                                        Employment
+                                    </label>
+                                    <div class="flex gap-x-6">
+                                        <div class="flex">
+                                            <input type="radio" id="employed" name="employment" value="Employed"
+                                                   class="shrink-0 mt-0.5 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500"
+                                                   checked>
+                                            <label for="employed"
+                                                   class="text-sm text-gray-500 ml-2">Employed</label>
+                                        </div>
+
+                                        <div class="flex">
+                                            <input type="radio" id="unemployed" name="employment" value="Unemployed"
+                                                   class="shrink-0 mt-0.5 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500">
+                                            <label for="unemployed"
+                                                   class="text-sm text-gray-500 ml-2">Unemployed</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="mt-6 border-b-1 border-blueGray-300">
+
+                        <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                            Hobbies
+                        </h6>
+                        <div class="flex flex-wrap">
+                            <div class="w-full lg:w-12/12 px-4">
+                                <div class="grid grid-cols-4 gap-4">
+                                    <div>
+                                        <div class="block min-h-6 pl-7">
+                                            <label>
+                                                <input id="reading" type="checkbox" name="hobby[]" value="Reading"
+                                                       class="w-5 h-5 mt-0.5 border-gray-900 rounded text-gray-900 pointer-events-none focus:ring-blue-500">
+                                                <label for="reading"
+                                                       class="cursor-pointer select-none text-slate-700">Reading</label>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="block min-h-6 pl-7">
+                                            <label>
+                                                <input id="photography" type="checkbox" name="hobby[]"
+                                                       value="Photography"
+                                                       class="w-5 h-5 mt-0.5 border-gray-900 rounded text-gray-900 pointer-events-none focus:ring-blue-500">
+                                                <label for="photography"
+                                                       class="cursor-pointer select-none text-slate-700">Photography</label>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="block min-h-6 pl-7">
+                                            <label>
+                                                <input id="hiking" type="checkbox" name="hobby[]" value="Hiking"
+                                                       class="w-5 h-5 mt-0.5 border-gray-900 rounded text-gray-900 pointer-events-none focus:ring-blue-500">
+                                                <label for="hiking"
+                                                       class="cursor-pointer select-none text-slate-700">Hiking</label>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="block min-h-6 pl-7">
+                                            <label>
+                                                <input id="painting" type="checkbox" name="hobby[]" value="Painting"
+                                                       class="w-5 h-5 mt-0.5 border-gray-900 rounded text-gray-900 pointer-events-none focus:ring-blue-500">
+                                                <label for="painting"
+                                                       class="cursor-pointer select-none text-slate-700">Painting</label>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="block min-h-6 pl-7">
+                                            <label>
+                                                <input id="running" type="checkbox" name="hobby[]" value="Running"
+                                                       class="w-5 h-5 mt-0.5 border-gray-900 rounded text-gray-900 pointer-events-none focus:ring-blue-500">
+                                                <label for="running"
+                                                       class="cursor-pointer select-none text-slate-700">Running</label>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="block min-h-6 pl-7">
+                                            <label>
+                                                <input id="cooking" type="checkbox" name="hobby[]" value="Cooking"
+                                                       class="w-5 h-5 mt-0.5 border-gray-900 rounded text-gray-900 pointer-events-none focus:ring-blue-500">
+                                                <label for="cooking"
+                                                       class="cursor-pointer select-none text-slate-700">Cooking</label>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="block min-h-6 pl-7">
+                                            <label>
+                                                <input id="gaming" type="checkbox" name="hobby[]" value="Gaming"
+                                                       class="w-5 h-5 mt-0.5 border-gray-900 rounded text-gray-900 pointer-events-none focus:ring-blue-500">
+                                                <label for="gaming"
+                                                       class="cursor-pointer select-none text-slate-700">Gaming</label>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="block min-h-6 pl-7">
+                                            <label>
+                                                <input id="fitness" type="checkbox" name="hobby[]" value="Fitness"
+                                                       class="w-5 h-5 mt-0.5 border-gray-900 rounded text-gray-900 pointer-events-none focus:ring-blue-500">
+                                                <label for="fitness"
+                                                       class="cursor-pointer select-none text-slate-700">Fitness</label>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="mt-6 border-b-1 border-blueGray-300">
+
+                        <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                            Comments
+                        </h6>
+                        <div class="flex flex-wrap">
+                            <div class="w-full lg:w-12/12 px-4">
+                                <div class="relative w-full mb-3">
+                                    <label for="comments"
+                                           class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                                        Comments
+                                    </label>
+                                    <textarea id="comments" name="comments"
+                                              class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                              rows="4"> Enter your comments.</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <footer class="relative flex flex-col items-center">
+                <div>
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="/login">
+                        Already registered?
+                    </a>
+                </div>
+                <div class="mt-2">
+                    <a href="/register">
+                        <button type="submit" class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600">
+                            Register
+                        </button>
+                    </a>
+                </div>
+            </footer>
+        </div>
+    </section>
+</form>
+</body>
+</html>
