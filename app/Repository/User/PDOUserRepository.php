@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace SokTechnical\Repository\User;
+namespace LLKC\Repository\User;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Query\QueryBuilder;
-use SokTechnical\Core\Database;
-use SokTechnical\Models\User;
+use LLKC\Core\Database;
+use LLKC\Models\User;
 
 class PDOUserRepository implements UserRepository
 {

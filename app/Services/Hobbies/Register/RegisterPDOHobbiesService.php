@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace SokTechnical\Services\Hobbies\Register;
+namespace LLKC\Services\Hobbies\Register;
 
-use SokTechnical\Repository\Hobbies\HobbiesRepository;
+use LLKC\Repository\Hobbies\HobbiesRepository;
 
 class RegisterPDOHobbiesService
 {

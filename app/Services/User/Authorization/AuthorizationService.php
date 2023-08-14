@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace SokTechnical\Services\User\Authorization;
+namespace LLKC\Services\User\Authorization;
 
-use SokTechnical\Models\User;
-use SokTechnical\Repository\User\UserRepository;
+use LLKC\Models\User;
+use LLKC\Repository\User\UserRepository;
 
 class AuthorizationService
 {

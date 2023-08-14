@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace SokTechnical\Controllers\Authorization;
+namespace LLKC\Controllers\Authorization;
 
-use SokTechnical\Core\Redirect;
-use SokTechnical\Core\Session;
-use SokTechnical\Core\TwigView;
-use SokTechnical\Exceptions\LoginException;
-use SokTechnical\Services\User\Authorization\AuthorizationService;
-use SokTechnical\Validation\LoginValidator;
+use LLKC\Core\Redirect;
+use LLKC\Core\Session;
+use LLKC\Core\TwigView;
+use LLKC\Exceptions\LoginException;
+use LLKC\Services\User\Authorization\AuthorizationService;
+use LLKC\Validation\LoginValidator;
 
 class AuthorizationController
 {

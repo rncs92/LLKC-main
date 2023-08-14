@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace SokTechnical\Repository\Hobbies;
+namespace LLKC\Repository\Hobbies;
 
-use SokTechnical\Models\Hobbies;
+use LLKC\Models\Hobbies;
 
 interface HobbiesRepository
 {

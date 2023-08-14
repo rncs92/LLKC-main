@@ -1,8 +1,8 @@
 <?php
 
-use SokTechnical\Controllers\Authorization\AuthorizationController;
-use SokTechnical\Controllers\Index\IndexController;
-use SokTechnical\Controllers\User\UserController;
+use LLKC\Controllers\Authorization\AuthorizationController;
+use LLKC\Controllers\Index\IndexController;
+use LLKC\Controllers\User\UserController;
 
 return [
     //Index

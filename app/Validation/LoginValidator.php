@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace SokTechnical\Validation;
+namespace LLKC\Validation;
 
-use SokTechnical\Exceptions\LoginException;
-use SokTechnical\Repository\User\UserRepository;
+use LLKC\Exceptions\LoginException;
+use LLKC\Repository\User\UserRepository;
 
 class LoginValidator
 {

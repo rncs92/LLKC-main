@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace SokTechnical\Repository\User;
+namespace LLKC\Repository\User;
 
-use SokTechnical\Models\User;
+use LLKC\Models\User;
 
 interface UserRepository
 {

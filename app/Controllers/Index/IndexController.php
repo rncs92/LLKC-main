@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace SokTechnical\Controllers\Index;
+namespace LLKC\Controllers\Index;
 
-use SokTechnical\Core\Session;
-use SokTechnical\Core\TwigView;
+use LLKC\Core\Session;
+use LLKC\Core\TwigView;
 
 class IndexController
 {

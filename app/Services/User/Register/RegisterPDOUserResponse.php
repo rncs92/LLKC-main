@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace SokTechnical\Services\User\Register;
+namespace LLKC\Services\User\Register;
 
-use SokTechnical\Models\User;
+use LLKC\Models\User;
 
 class RegisterPDOUserResponse
 {

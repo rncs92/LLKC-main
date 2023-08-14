@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace SokTechnical\Exceptions;
+namespace LLKC\Exceptions;
 
 use RuntimeException;
 

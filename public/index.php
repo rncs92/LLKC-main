@@ -1,10 +1,10 @@
 <?php
 
-use SokTechnical\Core\Redirect;
-use SokTechnical\Core\Renderer;
-use SokTechnical\Core\Router;
-use SokTechnical\Core\Session;
-use SokTechnical\Core\TwigView;
+use LLKC\Core\Redirect;
+use LLKC\Core\Renderer;
+use LLKC\Core\Router;
+use LLKC\Core\Session;
+use LLKC\Core\TwigView;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 

@@ -1,15 +1,15 @@
 <?php declare(strict_types=1);
 
-namespace SokTechnical\Controllers\User;
+namespace LLKC\Controllers\User;
 
-use SokTechnical\Core\Redirect;
-use SokTechnical\Core\TwigView;
-use SokTechnical\Exceptions\ValidationException;
-use SokTechnical\Services\Hobbies\Register\RegisterPDOHobbiesRequest;
-use SokTechnical\Services\Hobbies\Register\RegisterPDOHobbiesService;
-use SokTechnical\Services\User\Register\RegisterPDOUserRequest;
-use SokTechnical\Services\User\Register\RegisterPDOUserService;
-use SokTechnical\Validation\RegisterFormValidator;
+use LLKC\Core\Redirect;
+use LLKC\Core\TwigView;
+use LLKC\Exceptions\ValidationException;
+use LLKC\Services\Hobbies\Register\RegisterPDOHobbiesRequest;
+use LLKC\Services\Hobbies\Register\RegisterPDOHobbiesService;
+use LLKC\Services\User\Register\RegisterPDOUserRequest;
+use LLKC\Services\User\Register\RegisterPDOUserService;
+use LLKC\Validation\RegisterFormValidator;
 
 class UserController
 {

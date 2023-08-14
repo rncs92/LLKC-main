@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace SokTechnical\Repository\Hobbies;
+namespace LLKC\Repository\Hobbies;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Query\QueryBuilder;
-use SokTechnical\Core\Database;
-use SokTechnical\Models\Hobbies;
+use LLKC\Core\Database;
+use LLKC\Models\Hobbies;
 
 class PDOHobbiesRepository implements HobbiesRepository
 {

@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace SokTechnical\Validation;
+namespace LLKC\Validation;
 
-use SokTechnical\Exceptions\ValidationException;
-use SokTechnical\Repository\User\UserRepository;
+use LLKC\Exceptions\ValidationException;
+use LLKC\Repository\User\UserRepository;
 
 class RegisterFormValidator
 {
