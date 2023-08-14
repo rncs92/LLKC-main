@@ -128,6 +128,9 @@
                                     <input type="text" id="address" name="address"
                                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                            required>
+                                    {% if errors.address %}
+                                        <span class="text-red-500">{{ errors.address[0] }}</span>
+                                    {% endif %}
                                 </div>
                             </div>
                             <div class="w-full lg:w-4/12 px-4">
@@ -139,6 +142,9 @@
                                     <input type="text" id="city" name="city"
                                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                            required>
+                                    {% if errors.city %}
+                                        <span class="text-red-500">{{ errors.city[0] }}</span>
+                                    {% endif %}
                                 </div>
                             </div>
                             <div class="w-full lg:w-4/12 px-4">
@@ -150,6 +156,9 @@
                                     <input type="text" id="postal_code" name="postal_code"
                                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                            required>
+                                    {% if errors.postal_code %}
+                                        <span class="text-red-500">{{ errors.postal_code[0] }}</span>
+                                    {% endif %}
                                 </div>
                             </div>
                             <div class="w-full lg:w-4/12 px-4">
@@ -161,6 +170,9 @@
                                     <input type="tel" id="phone_number" name="phone_number"
                                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                            required>
+                                    {% if errors.phone_number %}
+                                        <span class="text-red-500">{{ errors.phone_number[0] }}</span>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
@@ -192,6 +204,9 @@
                                         <input id="date" name="date_from" type="text"
                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                placeholder="Select date start" required>
+                                        {% if errors.date_from %}
+                                            <span class="text-red-500">{{ errors.date_from[0] }}</span>
+                                        {% endif %}
                                     </div>
                                     <span class="mx-4 text-gray-500">to</span>
                                     <div class="relative">
@@ -207,6 +222,9 @@
                                         <input id="date" name="date_to" type="text"
                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                placeholder="Select date end" required>
+                                        {% if errors.date_to %}
+                                            <span class="text-red-500">{{ errors.date_to[0] }}</span>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
@@ -411,6 +429,9 @@
                                     <textarea id="comments" name="comments"
                                               class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                               rows="4"> Enter your comments.</textarea>
+                                    {% if errors.comments %}
+                                        <span class="text-red-500">{{ errors.comments[0] }}</span>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
