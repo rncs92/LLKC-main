@@ -68,7 +68,7 @@ class RegisterFormValidator
         }
 
         //Phone number
-        if (strlen($fields['phone_number']) < 6) {
+        if (strlen($fields['phone_number']) < 8) {
             $this->errors['phone_number'][] = 'Please enter a valid phone number!!';
         }
 
