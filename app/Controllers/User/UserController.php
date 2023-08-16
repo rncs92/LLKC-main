@@ -11,6 +11,7 @@ use LLKC\Services\Hobbies\Register\RegisterPDOHobbiesRequest;
 use LLKC\Services\Hobbies\Register\RegisterPDOHobbiesService;
 use LLKC\Services\User\Register\RegisterPDOUserRequest;
 use LLKC\Services\User\Register\RegisterPDOUserService;
+use LLKC\Services\User\Show\All\ShowAllPDOUserService;
 use LLKC\Services\User\Show\ShowPDOUserRequest;
 use LLKC\Services\User\Show\ShowPDOUserService;
 use LLKC\Validation\RegisterFormValidator;
@@ -21,11 +22,13 @@ class UserController
     private RegisterFormValidator $validator;
     private RegisterPDOHobbiesService $registerPDOHobbiesService;
     private ShowPDOUserService $showPDOUserService;
+    private ShowAllPDOUserService $showAllPDOUserService;
 
     public function __construct(
         RegisterPDOUserService    $registerPDOUserService,
         RegisterPDOHobbiesService $registerPDOHobbiesService,
         ShowPDOUserService        $showPDOUserService,
+        ShowAllPDOUserService     $showAllPDOUserService,
         RegisterFormValidator     $validator
     )
     {
@@ -33,6 +36,7 @@ class UserController
         $this->validator = $validator;
         $this->registerPDOHobbiesService = $registerPDOHobbiesService;
         $this->showPDOUserService = $showPDOUserService;
+        $this->showAllPDOUserService = $showAllPDOUserService;
     }
 
     public function register(): TwigView
@@ -98,6 +102,26 @@ class UserController
         if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['datatable'])) {
             header('Content-Type: application/json');
             echo json_encode([$info]);
+            exit;
+        }
+
+        return new TwigView('Index/index', []);
+    }
+
+    public function showAll(): TwigView
+    {
+        $user = Session::get('user');
+        if (!$user) {
+            return new TwigView('Errors/notAuthorized', []);
+        }
+
+        $infoResponse = $this->showAllPDOUserService->handle();
+        $info = json_decode($infoResponse->getUserInfo(), true);
+
+
+        if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['datatable'])) {
+            header('Content-Type: application/json');
+            echo json_encode($info);
             exit;
         }
 
