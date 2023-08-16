@@ -7,7 +7,8 @@ use LLKC\Controllers\User\UserController;
 return [
     //Index
     ['GET', '/', [IndexController::class, 'welcome']],
-    ['GET', '/index', [IndexController::class, 'index']],
+    ['GET', '/index', [UserController::class, 'show']],
+    //['GET', '/index', [IndexController::class, 'index']],
     //Registration
     ['GET', '/register', [UserController::class, 'register']],
     ['POST', '/register', [UserController::class, 'store']],

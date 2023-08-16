@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <title>LLKC</title>
 </head>
 <body class="w-full h-full bg-gray-200">
@@ -26,9 +27,8 @@
                 </ul>
             </div>
             <div class="hidden xl:flex items-center space-x-5 items-center">
-                <a class="flex mr-4 items-center hover:text-yellow-400" href="#">
-                    <form method="POST" action="/logout"
-                          class="flex flex-row items-center h-12 px-4 rounded-lg bg-green-600 text-white hover:bg-green-800 hover:text-yellow-400">
+                <form method="POST" action="/logout"
+                      class="flex flex-row items-center h-12 px-4 mr-4 rounded-lg bg-green-600 text-white hover:bg-green-800 hover:text-yellow-400">
                             <span class="flex items-center justify-center text-lg text-red-500">
                                 <svg fill="none"
                                      stroke-linecap="round"
@@ -40,12 +40,95 @@
                                     <path d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"></path>
                                 </svg>
                             </span>
-                        <button type="submit" class="ml-3">Logout</button>
-                    </form>
-                </a>
+                    <button type="submit" class="ml-3">Logout</button>
+                </form>
             </div>
         </nav>
     </section>
+    <div class="flex justify-center items-center w-full mt-10">
+        <div class="relative w-4/5 overflow-x-auto">
+            <table id="usersTable" class="display">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        ID
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Username
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Name
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Surname
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Email
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Address
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Postal Code
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Phone number
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Comments
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Comments
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Comments
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#usersTable').DataTable({
+            "ajax": {
+                "url": "/index?datatable=1",
+                "dataSrc": "data"
+            },
+            "columns": [
+                {"data": "user_id"},
+                {"data": "username"},
+                {"data": "name"},
+                {"data": "surname"},
+                {"data": "email"},
+                {"data": "password"},
+                {"data": "address"},
+                {"data": "city"},
+                {"data": "postal_code"},
+                {"data": "phone_number"},
+                {"data": "comments"},
+            ]
+        });
+    });
+</script>
+
 </body>
 </html>

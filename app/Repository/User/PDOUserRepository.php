@@ -53,6 +53,20 @@ class PDOUserRepository implements UserRepository
         $user->setUserid((int)$this->connection->lastInsertId());
     }
 
+    public function byId(int $userId): string
+    {
+        $queryBuilder = $this->queryBuilder;
+        $user = $queryBuilder
+            ->select('*')
+            ->from('users')
+            ->where('user_id = ?')
+            ->setParameter(0, $userId)
+            ->fetchAssociative();
+
+
+        return json_encode($user);
+    }
+
     public function byEmail(string $email): ?User
     {
         $queryBuilder = $this->queryBuilder;

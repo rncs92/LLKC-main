@@ -3,12 +3,16 @@
 namespace LLKC\Controllers\User;
 
 use LLKC\Core\Redirect;
+use LLKC\Core\Session;
 use LLKC\Core\TwigView;
 use LLKC\Exceptions\ValidationException;
+use LLKC\Models\User;
 use LLKC\Services\Hobbies\Register\RegisterPDOHobbiesRequest;
 use LLKC\Services\Hobbies\Register\RegisterPDOHobbiesService;
 use LLKC\Services\User\Register\RegisterPDOUserRequest;
 use LLKC\Services\User\Register\RegisterPDOUserService;
+use LLKC\Services\User\Show\ShowPDOUserRequest;
+use LLKC\Services\User\Show\ShowPDOUserService;
 use LLKC\Validation\RegisterFormValidator;
 
 class UserController
@@ -16,16 +20,19 @@ class UserController
     private RegisterPDOUserService $registerPDOUserService;
     private RegisterFormValidator $validator;
     private RegisterPDOHobbiesService $registerPDOHobbiesService;
+    private ShowPDOUserService $showPDOUserService;
 
     public function __construct(
-        RegisterPDOUserService $registerPDOUserService,
+        RegisterPDOUserService    $registerPDOUserService,
         RegisterPDOHobbiesService $registerPDOHobbiesService,
-        RegisterFormValidator $validator
+        ShowPDOUserService        $showPDOUserService,
+        RegisterFormValidator     $validator
     )
     {
         $this->registerPDOUserService = $registerPDOUserService;
         $this->validator = $validator;
         $this->registerPDOHobbiesService = $registerPDOHobbiesService;
+        $this->showPDOUserService = $showPDOUserService;
     }
 
     public function register(): TwigView
@@ -73,5 +80,29 @@ class UserController
         } catch (ValidationException $exception) {
             return new Redirect('/register');
         }
+    }
+
+    public function show(): TwigView
+    {
+        $user = Session::get('user');
+        if (!$user) {
+            return new TwigView('Errors/notAuthorized', []);
+        }
+
+        $userId = $user->getUserid();
+
+        $infoResponse = $this->showPDOUserService->handle(new ShowPDOUserRequest((int)$userId));
+        $info = json_decode($infoResponse->getUserInfo(), true);
+
+
+        if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['datatable'])) {
+            header('Content-Type: application/json');
+            echo json_encode(array("data" => $info));
+            exit;
+        }
+
+        return new TwigView('Index/index', [
+            'info' => $info,
+        ]);
     }
 }

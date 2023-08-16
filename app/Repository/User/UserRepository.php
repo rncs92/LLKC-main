@@ -7,6 +7,7 @@ use LLKC\Models\User;
 interface UserRepository
 {
     public function save(User $user): void;
+    public function byId(int $userId): string;
     public function byEmail(string $email): ?User;
     public function byUsername(string $username): ?User;
     public function authenticate(User $user): bool;
