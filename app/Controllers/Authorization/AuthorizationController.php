@@ -27,7 +27,7 @@ class AuthorizationController
     public function index(): TwigView
     {
         if(Session::get('user')){
-            return new TwigView('Errors/notAuthorized', []);
+            return new TwigView('Index/index', []);
         }
         return new TwigView('User/login', []);
     }

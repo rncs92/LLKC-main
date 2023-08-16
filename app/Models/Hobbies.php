@@ -9,7 +9,7 @@ class Hobbies
     private string $gender;
     private string $age;
     private string $employment;
-    private array $hobbies;
+    private string $hobbies;
     private ?int $userId;
 
     public function __construct
@@ -19,7 +19,7 @@ class Hobbies
         string $gender,
         string $age,
         string $employment,
-        array  $hobbies,
+        string  $hobbies,
         int    $userId = null
     )
     {
@@ -57,7 +57,7 @@ class Hobbies
         return $this->employment;
     }
 
-    public function getHobbies(): array
+    public function getHobbies(): string
     {
         return $this->hobbies;
     }

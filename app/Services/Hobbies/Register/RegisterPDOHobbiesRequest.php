@@ -9,7 +9,7 @@ class RegisterPDOHobbiesRequest
     private string $gender;
     private string $age;
     private string $employment;
-    private array $hobbies;
+    private string $hobbies;
 
 
     public function __construct
@@ -19,7 +19,7 @@ class RegisterPDOHobbiesRequest
         string $gender,
         string $age,
         string $employment,
-        array  $hobbies
+        string  $hobbies
     )
     {
         $this->date_from = $date_from;
@@ -55,7 +55,7 @@ class RegisterPDOHobbiesRequest
         return $this->employment;
     }
 
-    public function getHobbies(): array
+    public function getHobbies(): string
     {
         return $this->hobbies;
     }

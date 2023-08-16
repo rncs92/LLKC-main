@@ -3,6 +3,7 @@
 namespace LLKC\Controllers\User;
 
 use LLKC\Core\Redirect;
+use LLKC\Core\Session;
 use LLKC\Core\TwigView;
 use LLKC\Exceptions\ValidationException;
 use LLKC\Services\Hobbies\Register\RegisterPDOHobbiesRequest;
@@ -31,6 +32,9 @@ class UserController
 
     public function register(): TwigView
     {
+        if(Session::get('user')) {
+            return new TwigView('Index/index', []);
+        }
         return new TwigView('User/register', []);
     }
 
@@ -56,6 +60,7 @@ class UserController
 
             $userId = $user->getUser()->getUserid();
 
+            $hobbies = isset($_POST['hobby']) ? implode(', ', $_POST['hobby']) : '';
             $this->registerPDOHobbiesService->handle(
                 new RegisterPDOHobbiesRequest(
                     $_POST['date_from'],
@@ -63,7 +68,7 @@ class UserController
                     $_POST['gender'],
                     $_POST['age'],
                     $_POST['employment'],
-                    $_POST['hobby'],
+                    $hobbies,
                 ),
                 $userId
             );
