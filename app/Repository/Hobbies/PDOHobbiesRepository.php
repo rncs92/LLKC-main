@@ -46,6 +46,17 @@ class PDOHobbiesRepository implements HobbiesRepository
 
     }
 
+    public function all(): string
+    {
+        $queryBuilder = $this->queryBuilder;
+        $user = $queryBuilder
+            ->select('*')
+            ->from('hobbies')
+            ->fetchAllAssociative();
+
+        return json_encode($user);
+    }
+
     private function buildModel($user): Hobbies
     {
         return new Hobbies(

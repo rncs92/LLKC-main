@@ -47,46 +47,34 @@
     </section>
     <div class="flex justify-center items-center w-full mt-10">
         <div class="relative overflow-x-auto">
-            <table id="usersTable" class="display">
+            <table id="infoTable" class="display">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                 <tr>
                     <th scope="col" class="px-6 py-3">
-                        ID
+                        User ID
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Username
+                        Date From:
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Name
+                        Date To:
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Surname
+                        Gender
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Email
+                        Age
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Address
+                        Employment
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        City
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Postal Code
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Phone number
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Comments
+                        Hobbies
                     </th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -104,22 +92,19 @@
 <script type="text/javascript" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('#usersTable').DataTable({
+        $('#infoTable').DataTable({
             "ajax": {
-                "url": "/index?datatable=1",
+                "url": "/info?datatable=1",
                 "dataSrc": ""
             },
             "columns": [
                 {"data": "user_id"},
-                {"data": "username"},
-                {"data": "name"},
-                {"data": "surname"},
-                {"data": "email"},
-                {"data": "address"},
-                {"data": "city"},
-                {"data": "postal_code"},
-                {"data": "phone_number"},
-                {"data": "comments"},
+                {"data": "date_from"},
+                {"data": "date_to"},
+                {"data": "gender"},
+                {"data": "age"},
+                {"data": "employment"},
+                {"data": "hobbies"},
             ]
         });
     });

@@ -6,9 +6,9 @@ use LLKC\Core\Redirect;
 use LLKC\Core\Session;
 use LLKC\Core\TwigView;
 use LLKC\Exceptions\ValidationException;
-use LLKC\Models\User;
 use LLKC\Services\Hobbies\Register\RegisterPDOHobbiesRequest;
 use LLKC\Services\Hobbies\Register\RegisterPDOHobbiesService;
+use LLKC\Services\Hobbies\Show\ShowAllPDOHobbiesService;
 use LLKC\Services\User\Register\RegisterPDOUserRequest;
 use LLKC\Services\User\Register\RegisterPDOUserService;
 use LLKC\Services\User\Show\All\ShowAllPDOUserService;
@@ -23,12 +23,14 @@ class UserController
     private RegisterPDOHobbiesService $registerPDOHobbiesService;
     private ShowPDOUserService $showPDOUserService;
     private ShowAllPDOUserService $showAllPDOUserService;
+    private ShowAllPDOHobbiesService $showAllPDOHobbiesService;
 
     public function __construct(
         RegisterPDOUserService    $registerPDOUserService,
         RegisterPDOHobbiesService $registerPDOHobbiesService,
         ShowPDOUserService        $showPDOUserService,
         ShowAllPDOUserService     $showAllPDOUserService,
+        ShowAllPDOHobbiesService  $showAllPDOHobbiesService,
         RegisterFormValidator     $validator
     )
     {
@@ -37,6 +39,7 @@ class UserController
         $this->registerPDOHobbiesService = $registerPDOHobbiesService;
         $this->showPDOUserService = $showPDOUserService;
         $this->showAllPDOUserService = $showAllPDOUserService;
+        $this->showAllPDOHobbiesService = $showAllPDOHobbiesService;
     }
 
     public function register(): TwigView
@@ -98,7 +101,6 @@ class UserController
         $infoResponse = $this->showPDOUserService->handle(new ShowPDOUserRequest((int)$userId));
         $info = json_decode($infoResponse->getUserInfo(), true);
 
-
         if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['datatable'])) {
             header('Content-Type: application/json');
             echo json_encode([$info]);
@@ -115,16 +117,35 @@ class UserController
             return new TwigView('Errors/notAuthorized', []);
         }
 
-        $infoResponse = $this->showAllPDOUserService->handle();
-        $info = json_decode($infoResponse->getUserInfo(), true);
+        $userResponse = $this->showAllPDOUserService->handle();
+        $user = json_decode($userResponse->getUserInfo(), true);
 
 
         if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['datatable'])) {
             header('Content-Type: application/json');
-            echo json_encode($info);
+            echo json_encode($user);
             exit;
         }
 
         return new TwigView('Index/index', []);
+    }
+
+    public function showAdditionalInformation(): TwigView
+    {
+        $user = Session::get('user');
+        if (!$user) {
+            return new TwigView('Errors/notAuthorized', []);
+        }
+
+        $hobbiesResponse = $this->showAllPDOHobbiesService->handle();
+        $hobbies = json_decode($hobbiesResponse->getHobbies(), true);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['datatable'])) {
+            header('Content-Type: application/json');
+            echo json_encode($hobbies);
+            exit;
+        }
+
+        return new TwigView('Index/info', []);
     }
 }

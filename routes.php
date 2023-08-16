@@ -8,6 +8,7 @@ return [
     //Index
     ['GET', '/', [IndexController::class, 'welcome']],
     ['GET', '/index', [UserController::class, 'showAll']],
+    ['GET', '/info', [UserController::class, 'showAdditionalInformation']],
     //Registration
     ['GET', '/register', [UserController::class, 'register']],
     ['POST', '/register', [UserController::class, 'store']],
