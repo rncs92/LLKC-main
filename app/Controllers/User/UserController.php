@@ -3,17 +3,12 @@
 namespace LLKC\Controllers\User;
 
 use LLKC\Core\Redirect;
-use LLKC\Core\Session;
 use LLKC\Core\TwigView;
 use LLKC\Exceptions\ValidationException;
 use LLKC\Services\Hobbies\Register\RegisterPDOHobbiesRequest;
 use LLKC\Services\Hobbies\Register\RegisterPDOHobbiesService;
-use LLKC\Services\Hobbies\Show\ShowAllPDOHobbiesService;
 use LLKC\Services\User\Register\RegisterPDOUserRequest;
 use LLKC\Services\User\Register\RegisterPDOUserService;
-use LLKC\Services\User\Show\All\ShowAllPDOUserService;
-use LLKC\Services\User\Show\ShowPDOUserRequest;
-use LLKC\Services\User\Show\ShowPDOUserService;
 use LLKC\Validation\RegisterFormValidator;
 
 class UserController
@@ -21,25 +16,17 @@ class UserController
     private RegisterPDOUserService $registerPDOUserService;
     private RegisterFormValidator $validator;
     private RegisterPDOHobbiesService $registerPDOHobbiesService;
-    private ShowPDOUserService $showPDOUserService;
-    private ShowAllPDOUserService $showAllPDOUserService;
-    private ShowAllPDOHobbiesService $showAllPDOHobbiesService;
 
-    public function __construct(
+    public function __construct
+    (
         RegisterPDOUserService    $registerPDOUserService,
         RegisterPDOHobbiesService $registerPDOHobbiesService,
-        ShowPDOUserService        $showPDOUserService,
-        ShowAllPDOUserService     $showAllPDOUserService,
-        ShowAllPDOHobbiesService  $showAllPDOHobbiesService,
         RegisterFormValidator     $validator
     )
     {
         $this->registerPDOUserService = $registerPDOUserService;
         $this->validator = $validator;
         $this->registerPDOHobbiesService = $registerPDOHobbiesService;
-        $this->showPDOUserService = $showPDOUserService;
-        $this->showAllPDOUserService = $showAllPDOUserService;
-        $this->showAllPDOHobbiesService = $showAllPDOHobbiesService;
     }
 
     public function register(): TwigView
@@ -87,65 +74,5 @@ class UserController
         } catch (ValidationException $exception) {
             return new Redirect('/register');
         }
-    }
-
-    public function show(): TwigView
-    {
-        $user = Session::get('user');
-        if (!$user) {
-            return new TwigView('Errors/notAuthorized', []);
-        }
-
-        $userId = $user->getUserid();
-
-        $infoResponse = $this->showPDOUserService->handle(new ShowPDOUserRequest((int)$userId));
-        $info = json_decode($infoResponse->getUserInfo(), true);
-
-        if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['datatable'])) {
-            header('Content-Type: application/json');
-            echo json_encode([$info]);
-            exit;
-        }
-
-        return new TwigView('Index/index', []);
-    }
-
-    public function showAll(): TwigView
-    {
-        $user = Session::get('user');
-        if (!$user) {
-            return new TwigView('Errors/notAuthorized', []);
-        }
-
-        $userResponse = $this->showAllPDOUserService->handle();
-        $user = json_decode($userResponse->getUserInfo(), true);
-
-
-        if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['datatable'])) {
-            header('Content-Type: application/json');
-            echo json_encode($user);
-            exit;
-        }
-
-        return new TwigView('Index/index', []);
-    }
-
-    public function showAdditionalInformation(): TwigView
-    {
-        $user = Session::get('user');
-        if (!$user) {
-            return new TwigView('Errors/notAuthorized', []);
-        }
-
-        $hobbiesResponse = $this->showAllPDOHobbiesService->handle();
-        $hobbies = json_decode($hobbiesResponse->getHobbies(), true);
-
-        if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['datatable'])) {
-            header('Content-Type: application/json');
-            echo json_encode($hobbies);
-            exit;
-        }
-
-        return new TwigView('Index/info', []);
     }
 }

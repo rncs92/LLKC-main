@@ -2,13 +2,14 @@
 
 use LLKC\Controllers\Authorization\AuthorizationController;
 use LLKC\Controllers\Index\IndexController;
+use LLKC\Controllers\Show\ShowController;
 use LLKC\Controllers\User\UserController;
 
 return [
     //Index
     ['GET', '/', [IndexController::class, 'welcome']],
-    ['GET', '/index', [UserController::class, 'showAll']],
-    ['GET', '/info', [UserController::class, 'showAdditionalInformation']],
+    ['GET', '/index', [ShowController::class, 'showAll']],
+    ['GET', '/info', [ShowController::class, 'showAdditionalInformation']],
     //Registration
     ['GET', '/register', [UserController::class, 'register']],
     ['POST', '/register', [UserController::class, 'store']],
