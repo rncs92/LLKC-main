@@ -97,12 +97,10 @@ class UserController
 
         if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['datatable'])) {
             header('Content-Type: application/json');
-            echo json_encode(array("data" => $info));
+            echo json_encode([$info]);
             exit;
         }
 
-        return new TwigView('Index/index', [
-            'info' => $info,
-        ]);
+        return new TwigView('Index/index', []);
     }
 }
