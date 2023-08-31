@@ -9,7 +9,7 @@
 ![Screenshot from 2023-08-16 14-02-06](https://github.com/rncs92/eShop/assets/123461096/ef07127e-9ff3-46b8-ae4f-82a86b8bdce6)
 
 <b>To run the project:</b>
-- Clone this project using command git clone https://github.com/liivaq/Category_Tree.git in your terminal (or download it as a zip);
+- Clone this project using command git clone in your terminal (or download it as a zip);
 - Open the project in IDE of your choice;
 - Set up the database;
 - Copy the .env.example file, rename to .env and add your database information there (host, name, username, password)
